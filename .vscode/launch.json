@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-UsersVemApplication<users-vem>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.urbanape.usersvem.UsersVemApplication",
+            "projectName": "users-vem",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
