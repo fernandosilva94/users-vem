@@ -18,4 +18,36 @@ public class CartaoDto {
 
     @NotBlank
     private String tipoCartao;
+
+    public Long getNumeroCartao() {
+        return numeroCartao;
+    }
+
+    public void setNumeroCartao(Long numeroCartao) {
+        this.numeroCartao = numeroCartao;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
+
+    public String getTipoCartao() {
+        return tipoCartao;
+    }
+
+    public void setTipoCartao(String tipoCartao) {
+        this.tipoCartao = tipoCartao;
+    }
 }
