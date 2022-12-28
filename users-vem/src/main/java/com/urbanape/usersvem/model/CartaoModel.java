@@ -7,19 +7,22 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "tb_cartao")
-public class CartaoModel {
+public class CartaoModel  {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "numero_cartao", nullable = false, unique = true)
-    private Integer numeroCartao;
+    @Column(name = "numero_cartao", nullable = false, unique = true, length = 10)
+    private Long numeroCartao;
 
     @Column(nullable = false, length = 200)
     private String nome;
@@ -33,11 +36,15 @@ public class CartaoModel {
     @Column(length = 10, nullable = false)
     private String tipoCartao;
 
-    public Integer getNumeroCartao() {
+    @ManyToOne
+    @JoinColumn(name = "usuario_id", nullable = false)
+    private UsuarioModel usuario;
+
+    public Long getNumeroCartao() {
         return numeroCartao;
     }
 
-    public void setNumeroCartao(Integer numeroCartao) {
+    public void setNumeroCartao(Long numeroCartao) {
         this.numeroCartao = numeroCartao;
     }
 
@@ -63,6 +70,18 @@ public class CartaoModel {
 
     public void setTipoCartao(String tipoCartao) {
         this.tipoCartao = tipoCartao;
+    }
+
+    public UsuarioModel getUsuario() {
+
+        return usuario;
+
+    }
+
+    public void setUsuario(UsuarioModel usuario) {
+
+        this.usuario = usuario;
+
     }
 
 }

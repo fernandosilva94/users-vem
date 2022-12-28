@@ -7,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -26,7 +27,7 @@ public class UsuarioModel {
     @Column(nullable = false, length = 200)
     private String senha;
 
-    @Column
+    @OneToMany(mappedBy="usuario")
     private List<CartaoModel> cartao;
 
     public String getNome() {
