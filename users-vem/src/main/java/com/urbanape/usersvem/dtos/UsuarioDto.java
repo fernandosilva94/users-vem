@@ -1,5 +1,9 @@
 package com.urbanape.usersvem.dtos;
 
+import java.util.List;
+
+import com.urbanape.usersvem.model.CartaoModel;
+
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
@@ -16,6 +20,8 @@ public class UsuarioDto {
     @NotBlank
     @Size(min = 6)
     private String senha;
+
+    private List<CartaoModel> cartao;
 
     public String getNome() {
         return nome;
@@ -39,5 +45,13 @@ public class UsuarioDto {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public List<CartaoModel> getCartao() {
+        return cartao;
+    }
+
+    public void setCartao(List<CartaoModel> cartao) {
+        this.cartao = cartao;
     }
 }
