@@ -1,29 +1,37 @@
 package com.urbanape.usersvem.dtos;
 
+import com.urbanape.usersvem.model.UsuarioModel;
+
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 public class CartaoDto {
 
-    @NotBlank
-    @Size(min = 10, max = 10)
-    private Long numeroCartao;
+    private Integer numeroCartao;
 
     @NotBlank
     @Size(min=5)
     private String nome;
 
-    @NotBlank
     private Boolean status;
 
-    @NotBlank
     private String tipoCartao;
 
-    public Long getNumeroCartao() {
+    private UsuarioModel usuario;
+
+    public UsuarioModel getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(UsuarioModel usuario) {
+        this.usuario = usuario;
+    }
+
+    public Integer getNumeroCartao() {
         return numeroCartao;
     }
 
-    public void setNumeroCartao(Long numeroCartao) {
+    public void setNumeroCartao(Integer numeroCartao) {
         this.numeroCartao = numeroCartao;
     }
 
@@ -50,4 +58,6 @@ public class CartaoDto {
     public void setTipoCartao(String tipoCartao) {
         this.tipoCartao = tipoCartao;
     }
+
+    
 }

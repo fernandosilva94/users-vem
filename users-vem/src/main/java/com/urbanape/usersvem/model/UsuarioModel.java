@@ -1,5 +1,6 @@
 package com.urbanape.usersvem.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -12,11 +13,11 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tb_usuario")
-public class UsuarioModel {
+public class UsuarioModel implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Integer id;
 
     @Column(nullable = false, length = 500)
     private String nome;
