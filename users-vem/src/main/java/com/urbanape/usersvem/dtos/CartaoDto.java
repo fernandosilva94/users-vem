@@ -19,14 +19,6 @@ public class CartaoDto {
 
     private UsuarioModel usuario;
 
-    public UsuarioModel getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(UsuarioModel usuario) {
-        this.usuario = usuario;
-    }
-
     public Integer getNumeroCartao() {
         return numeroCartao;
     }
@@ -59,5 +51,12 @@ public class CartaoDto {
         this.tipoCartao = tipoCartao;
     }
 
+    public UsuarioModel getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(UsuarioModel usuario) {
+        this.usuario = usuario;
+    }
     
 }

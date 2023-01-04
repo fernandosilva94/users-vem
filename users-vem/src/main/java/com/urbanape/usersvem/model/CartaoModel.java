@@ -35,7 +35,7 @@ public class CartaoModel implements Serializable {
     private String tipoCartao;
 
     @JsonBackReference
-    @ManyToOne(cascade=CascadeType.ALL)
+    @ManyToOne(cascade=CascadeType.PERSIST)
     @JoinColumn(name = "usuario_id")
     private UsuarioModel usuario;
 

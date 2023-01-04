@@ -1,5 +1,7 @@
 package com.urbanape.usersvem.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.urbanape.usersvem.model.CartaoModel;
@@ -18,5 +20,9 @@ public class CartaoService {
     @Transactional
     public CartaoModel save(CartaoModel cartaoModel) {
         return cartaoRepository.save(cartaoModel);
+    }
+
+    public List<CartaoModel> findAll() {
+        return cartaoRepository.findAll();
     }
 }

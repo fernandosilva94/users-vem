@@ -1,9 +1,12 @@
 package com.urbanape.usersvem.controller;
 
+import java.util.List;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,5 +34,10 @@ public class CartaoController {
         var cartaoModel = new CartaoModel();
         BeanUtils.copyProperties(cartaoDto, cartaoModel);
         return ResponseEntity.status(HttpStatus.CREATED).body(cartaoService.save(cartaoModel));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<CartaoModel>> getAllCartao() {
+        return ResponseEntity.status(HttpStatus.OK).body(cartaoService.findAll());
     }
 }
