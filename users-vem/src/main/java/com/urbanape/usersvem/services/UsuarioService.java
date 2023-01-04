@@ -1,6 +1,7 @@
 package com.urbanape.usersvem.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -25,5 +26,14 @@ public class UsuarioService {
 
     public List<UsuarioModel> findAll() {
         return usuarioRepository.findAll();
+    }
+
+    public Optional<UsuarioModel> findById(Integer id) {
+        return usuarioRepository.findById(id);
+    }
+
+    @Transactional
+    public void deleteUsuario(UsuarioModel usuarioModel) {
+        usuarioRepository.delete(usuarioModel);
     }
 }
