@@ -1,5 +1,7 @@
 package com.urbanape.usersvem.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.urbanape.usersvem.model.UsuarioModel;
@@ -19,5 +21,9 @@ public class UsuarioService {
     @Transactional
     public UsuarioModel save(UsuarioModel usuarioModel) {
         return usuarioRepository.save(usuarioModel);
+    }
+
+    public List<UsuarioModel> findAll() {
+        return usuarioRepository.findAll();
     }
 }
