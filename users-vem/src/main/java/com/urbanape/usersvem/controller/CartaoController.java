@@ -82,7 +82,7 @@ public class CartaoController {
         var cartaoModel = new CartaoModel();
         BeanUtils.copyProperties(cartaoDto, cartaoModel);
         cartaoModel.setId(cartaoModelOptional.get().getId());
-        
+
         if (cartaoModel.getTipoCartao().equalsIgnoreCase("comum") || 
             cartaoModel.getTipoCartao().equalsIgnoreCase("estudante") || 
             cartaoModel.getTipoCartao().equalsIgnoreCase("trabalhador")) {
@@ -92,6 +92,5 @@ public class CartaoController {
 
         }
 
-        // return ResponseEntity.status(HttpStatus.OK).body(cartaoService.save(cartaoModel));
     }
 }
