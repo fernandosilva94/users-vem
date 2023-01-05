@@ -31,4 +31,9 @@ public class CartaoService {
         return cartaoRepository.findById(id);
     }
 
+    @Transactional
+    public void deleteCartao(CartaoModel cartaoModel) {
+        cartaoRepository.delete(cartaoModel);
+    }
+
 }

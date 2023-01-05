@@ -40,27 +40,27 @@ public class UsuarioController {
     }
 
     @GetMapping
-        public ResponseEntity<List<UsuarioModel>> getAllUsuario() {
-            return ResponseEntity.status(HttpStatus.OK).body(usuarioService.findAll());
-        }
+    public ResponseEntity<List<UsuarioModel>> getAllUsuario() {
+        return ResponseEntity.status(HttpStatus.OK).body(usuarioService.findAll());
+    }
 
     @GetMapping("/{id}")
-        public ResponseEntity<Object> getOneUsuario(@PathVariable(value = "id") Integer id) {
-            Optional<UsuarioModel> usuarioModelOptional = usuarioService.findById(id);
-            if (!usuarioModelOptional.isPresent()) {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario não encontrado, verifique o ID.");
-            }
-
-            return ResponseEntity.status(HttpStatus.OK).body(usuarioModelOptional.get());
+    public ResponseEntity<Object> getOneUsuario(@PathVariable(value = "id") Integer id) {
+        Optional<UsuarioModel> usuarioModelOptional = usuarioService.findById(id);
+        if (!usuarioModelOptional.isPresent()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario não encontrado, verifique o ID.");
         }
 
-     @DeleteMapping("/{id}")
-        public ResponseEntity<Object> deleteUsuario(@PathVariable(value = "id") Integer id) {
-            Optional<UsuarioModel> usuarioModelOptional = usuarioService.findById(id);
-            if (!usuarioModelOptional.isPresent()) {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario não encontrado, verifique o ID.");
-            }
-            usuarioService.deleteUsuario(usuarioModelOptional.get());
-            return ResponseEntity.status(HttpStatus.OK).body("Usuario deletado com sucesso.");
+        return ResponseEntity.status(HttpStatus.OK).body(usuarioModelOptional.get());
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Object> deleteUsuario(@PathVariable(value = "id") Integer id) {
+        Optional<UsuarioModel> usuarioModelOptional = usuarioService.findById(id);
+        if (!usuarioModelOptional.isPresent()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario não encontrado, verifique o ID.");
         }
+        usuarioService.deleteUsuario(usuarioModelOptional.get());
+        return ResponseEntity.status(HttpStatus.OK).body("Usuario deletado com sucesso.");
+    }
 }
