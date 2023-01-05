@@ -31,7 +31,7 @@ public class CartaoModel implements Serializable {
     @Column
     private Boolean status;
 
-    @Column(length = 10, nullable = false)
+    @Column(length = 12, nullable = false)
     private String tipoCartao;
 
     @JsonBackReference

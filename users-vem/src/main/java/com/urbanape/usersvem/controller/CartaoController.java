@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,7 +37,14 @@ public class CartaoController {
     public ResponseEntity<Object> salvarCartao(@RequestBody @Valid CartaoDto cartaoDto) {
         var cartaoModel = new CartaoModel();
         BeanUtils.copyProperties(cartaoDto, cartaoModel);
-        return ResponseEntity.status(HttpStatus.CREATED).body(cartaoService.save(cartaoModel));
+        if (cartaoModel.getTipoCartao().equalsIgnoreCase("comum") || 
+            cartaoModel.getTipoCartao().equalsIgnoreCase("estudante") || 
+            cartaoModel.getTipoCartao().equalsIgnoreCase("trabalhador")) {
+            return ResponseEntity.status(HttpStatus.OK).body(cartaoService.save(cartaoModel));
+        }else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Tipo de cartão inválido.");
+
+        }
     }
 
     @GetMapping
@@ -61,6 +69,29 @@ public class CartaoController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Cartão não encontrado, verifique o ID.");
         }
         cartaoService.deleteCartao(cartaoModelOptional.get());
+
         return ResponseEntity.status(HttpStatus.OK).body("Cartão deletado com sucesso.");
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Object> updateCartao(@PathVariable(value = "id") Integer id, @RequestBody @Valid CartaoDto cartaoDto) {
+        Optional<CartaoModel> cartaoModelOptional = cartaoService.findById(id);
+        if (!cartaoModelOptional.isPresent()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Cartão não encontrado, verifique o ID.");
+        }
+        var cartaoModel = new CartaoModel();
+        BeanUtils.copyProperties(cartaoDto, cartaoModel);
+        cartaoModel.setId(cartaoModelOptional.get().getId());
+        
+        if (cartaoModel.getTipoCartao().equalsIgnoreCase("comum") || 
+            cartaoModel.getTipoCartao().equalsIgnoreCase("estudante") || 
+            cartaoModel.getTipoCartao().equalsIgnoreCase("trabalhador")) {
+            return ResponseEntity.status(HttpStatus.OK).body(cartaoService.save(cartaoModel));
+        }else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Tipo de cartão inválido.");
+
+        }
+
+        // return ResponseEntity.status(HttpStatus.OK).body(cartaoService.save(cartaoModel));
     }
 }
