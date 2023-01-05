@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -62,5 +63,19 @@ public class UsuarioController {
         }
         usuarioService.deleteUsuario(usuarioModelOptional.get());
         return ResponseEntity.status(HttpStatus.OK).body("Usuario deletado com sucesso.");
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Object> updateUsuario(@PathVariable(value = "id") Integer id,
+                                                @RequestBody @Valid UsuarioDto usuarioDto) {
+        Optional<UsuarioModel> usuarioModelOptional = usuarioService.findById(id);
+        if (!usuarioModelOptional.isPresent()) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario não encontrado, verifique o ID");
+        }
+        var usuarioModel = new UsuarioModel();
+        BeanUtils.copyProperties(usuarioDto, usuarioModel);
+        usuarioModel.setId(usuarioModelOptional.get().getId());
+
+        return ResponseEntity.status(HttpStatus.OK).body(usuarioService.save(usuarioModel));
     }
 }

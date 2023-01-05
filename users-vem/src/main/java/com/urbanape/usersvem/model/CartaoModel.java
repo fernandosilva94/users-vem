@@ -39,6 +39,14 @@ public class CartaoModel implements Serializable {
     @JoinColumn(name = "usuario_id")
     private UsuarioModel usuario;
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public Integer getNumeroCartao() {
         return numeroCartao;
     }
