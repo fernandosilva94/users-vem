@@ -1,12 +1,15 @@
 package com.urbanape.usersvem.controller;
 
+import java.lang.StackWalker.Option;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,4 +43,14 @@ public class CartaoController {
     public ResponseEntity<List<CartaoModel>> getAllCartao() {
         return ResponseEntity.status(HttpStatus.OK).body(cartaoService.findAll());
     }
+
+    @GetMapping("/{id}")
+        public ResponseEntity<Object> getOneUsuario(@PathVariable(value = "id") Integer id) {
+            Optional<CartaoModel> cartaoModelOptional = cartaoService.findById(id);
+            if (!cartaoModelOptional.isPresent()) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Cartão não encontrado, verifique o ID.");
+            }
+
+            return ResponseEntity.status(HttpStatus.OK).body(cartaoModelOptional.get());
+        }
 }

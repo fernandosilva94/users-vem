@@ -1,6 +1,7 @@
 package com.urbanape.usersvem.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -25,4 +26,9 @@ public class CartaoService {
     public List<CartaoModel> findAll() {
         return cartaoRepository.findAll();
     }
+
+    public Optional<CartaoModel> findById(Integer id) {
+        return cartaoRepository.findById(id);
+    }
+
 }
