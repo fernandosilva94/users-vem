@@ -9,5 +9,4 @@ public class UsersVemApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(UsersVemApplication.class, args);
 	}
-
 }

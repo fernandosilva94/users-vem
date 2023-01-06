@@ -35,5 +35,4 @@ public class CartaoService {
     public void deleteCartao(CartaoModel cartaoModel) {
         cartaoRepository.delete(cartaoModel);
     }
-
 }

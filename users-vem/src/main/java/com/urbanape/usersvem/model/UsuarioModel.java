@@ -70,5 +70,4 @@ public class UsuarioModel implements Serializable {
     public void setCartao(List<CartaoModel> cartao) {
         this.cartao = cartao;
     }
-
 }

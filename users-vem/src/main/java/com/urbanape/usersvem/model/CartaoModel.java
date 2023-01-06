@@ -81,12 +81,9 @@ public class CartaoModel implements Serializable {
 
     public UsuarioModel getUsuario() {
         return usuario;
-
     }
 
     public void setUsuario(UsuarioModel usuario) {
         this.usuario = usuario;
-
     }
-
 }

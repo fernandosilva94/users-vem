@@ -62,6 +62,7 @@ public class UsuarioController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario não encontrado, verifique o ID.");
         }
         usuarioService.deleteUsuario(usuarioModelOptional.get());
+        
         return ResponseEntity.status(HttpStatus.OK).body("Usuario deletado com sucesso.");
     }
 

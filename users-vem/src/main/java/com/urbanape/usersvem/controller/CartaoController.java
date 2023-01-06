@@ -89,8 +89,6 @@ public class CartaoController {
             return ResponseEntity.status(HttpStatus.OK).body(cartaoService.save(cartaoModel));
         }else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Tipo de cartão inválido.");
-
         }
-
     }
 }
