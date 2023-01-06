@@ -4,8 +4,9 @@ A aplicação consiste em um CRUD de usuários, podendo estes usuários ter vár
 ### Pré-requesitos
 + Spring 3.0.^
 + MySQL 8.^
++ + Utilizar preferencialmente Workbench
 + Java 18.^
-+ Utilizar preferencialmente Workbench
++ Insomnia 7.^
 
 ### Como executar
 + criar esquema no banco de dados MySQL com o nome: "urbanape".
