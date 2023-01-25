@@ -3,16 +3,18 @@
   <table class="table table-striped">
     <thead>
       <tr>
+        <th> ID </th>
         <th> Nome </th>
         <th> E-mail </th>
-        <th> Nº Cartão </th>
+        <th> Cartão </th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let usuario of usuarios">
+        <td> {{ usuario.id }} </td>
         <td> {{ usuario.nome }} </td>
         <td> {{ usuario.email }} </td>
-        <td> {{ usuario.cartao }} </td>
+        <td> {{ usuario.cartao | json }} </td>
       </tr>
     </tbody>
   </table>
