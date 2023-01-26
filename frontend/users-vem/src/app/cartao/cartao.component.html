@@ -1,1 +1,21 @@
-<p>cartao works!</p>
+<div class="container">
+  <h2>Lista de Cartões</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th> ID </th>
+        <th> Nome </th>
+        <th> Tipo de Cartão </th>
+        <th> Status </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cartao of cartoes">
+        <td> {{ cartao.id }} </td>
+        <td> {{ cartao.nome }} </td>
+        <td> {{ cartao.tipoCartao }} </td>
+        <td> {{ cartao.status  !== true ? "INATIVO" : "ATIVO" }} </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,3 +1,4 @@
+import { CreateUsuarioComponent } from './create-usuario/create-usuario.component';
 import { CartaoComponent } from './cartao/cartao.component';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { NgModule } from '@angular/core';
@@ -6,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {path: "usuario", component: UsuarioComponent},
   {path: "cartao", component: CartaoComponent},
+  {path: "create-usuario", component: CreateUsuarioComponent},
   {path: "", redirectTo: "usuario", pathMatch: "full"}
 ];
 
