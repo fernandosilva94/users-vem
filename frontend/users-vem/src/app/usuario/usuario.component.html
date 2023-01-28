@@ -2,7 +2,7 @@
   <h2>Lista de usuários</h2>
   <table class="table table-striped">
     <thead>
-      <button type="button" class="create-user btn btn-light">Criar usuário</button>
+      <button (click)="onAdd()" type="button" class="create-user btn btn-light">Criar usuário</button>
       <tr>
         <th> ID </th>
         <th> Nome </th>
@@ -15,7 +15,7 @@
         <td> {{ usuario.id }} </td>
         <td> {{ usuario.nome }} </td>
         <td> {{ usuario.email }} </td>
-        <td> {{ usuario.cartao | json }} </td>
+        <td> {{ usuario.cartao | json }} <mat-icon>edit</mat-icon> </td>
       </tr>
     </tbody>
   </table>

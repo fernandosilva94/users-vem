@@ -11,20 +11,30 @@ import { CartaoComponent } from './cartao/cartao.component';
 import { CreateUsuarioComponent } from './create-usuario/create-usuario.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { UsuarioFormComponent } from './usuario-form/usuario-form.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsuarioComponent,
     CartaoComponent,
-    CreateUsuarioComponent
+    CreateUsuarioComponent,
+    UsuarioFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCardModule
   ],
   providers: [UsuarioService, CartaoService],
   bootstrap: [AppComponent]

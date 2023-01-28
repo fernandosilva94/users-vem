@@ -1,5 +1,6 @@
 import { UsuarioModel } from './../usuario';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-create-usuario',
@@ -8,10 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateUsuarioComponent implements OnInit {
   usuario!: UsuarioModel;
+  formGroup: FormGroup;
+  hide = true;
 
-  constructor() { }
+
+  constructor(private formBuilder: FormBuilder) {
+    this.formGroup = this.formBuilder.group({
+      nome: [null],
+      email: [null],
+      senha: [null],
+      cartao: [null],
+    })
+  }
 
   ngOnInit(): void {
   }
 
+  onSubmit() {}
+  AddCartao() {}
 }
