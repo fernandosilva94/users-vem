@@ -1,21 +1,23 @@
-import { CartaoService } from './services/cartao.service';
-import { UsuarioService } from './services/usuario.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CartaoService } from './services/cartao.service';
+import { UsuarioService } from './services/usuario.service';
 
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
-import { UsuarioComponent } from './usuario/usuario.component';
 import { CartaoComponent } from './cartao/cartao.component';
+import { CreateCartaoComponent } from './create-cartao/create-cartao.component';
 import { CreateUsuarioComponent } from './create-usuario/create-usuario.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { UsuarioFormComponent } from './usuario-form/usuario-form.component';
-import { MatIconModule } from '@angular/material/icon';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material';
-import { MatCardModule } from '@angular/material/card';
+import { UsuarioComponent } from './usuario/usuario.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { MatCardModule } from '@angular/material/card';
     UsuarioComponent,
     CartaoComponent,
     CreateUsuarioComponent,
-    UsuarioFormComponent
+    UsuarioFormComponent,
+    CreateCartaoComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ import { MatCardModule } from '@angular/material/card';
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    MatSnackBarModule
   ],
   providers: [UsuarioService, CartaoService],
   bootstrap: [AppComponent]

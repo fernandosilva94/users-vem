@@ -1,3 +1,4 @@
+import { CreateCartaoComponent } from './create-cartao/create-cartao.component';
 import { CreateUsuarioComponent } from './create-usuario/create-usuario.component';
 import { CartaoComponent } from './cartao/cartao.component';
 import { UsuarioComponent } from './usuario/usuario.component';
@@ -10,6 +11,7 @@ const routes: Routes = [
   {path: "usuario", component: UsuarioComponent},
   {path: "cartao", component: CartaoComponent},
   {path: "create-usuario", component: CreateUsuarioComponent},
+  {path: "create-cartao", component: CreateCartaoComponent},
   {path: "", redirectTo: "usuario", pathMatch: "full"}
 ];
 

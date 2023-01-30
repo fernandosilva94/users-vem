@@ -13,13 +13,24 @@
           />
 
           <div class="mb-3">
-            <input
+            <!-- <input
               type="email"
               class="form-control"
               id="exampleFormControlInput1"
               placeholder="name@example.com"
               formControlName="email"
-            />
+            /> -->
+            <div class="input-group">
+              <div class="input-group-text" id="btnGroupAddon">E-mail</div>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="name@example.com"
+                aria-label="Input group example"
+                aria-describedby="btnGroupAddon"
+                formControlName="email"
+              />
+            </div>
           </div>
 
           <div class="form-group">
@@ -42,9 +53,25 @@
             </div>
             <p>
               Deseja criar um cartão para este usuário?
-              <button (click)="AddCartao()" type="button" class="btn btn-outline-info">Clique aqui</button>
+              <button
+                (click)="AddCartao()"
+                type="button"
+                class="btn btn-outline-info"
+              >
+                Clique aqui
+              </button>
             </p>
           </div>
+          <button (click)="onSubmit()" class="btn btn-primary" type="submit">
+            Salvar
+          </button>
+          <button
+            (click)="btnVoltar()"
+            type="button"
+            class="btn-cancelar btn btn-outline-dark"
+          >
+            Cancelar
+          </button>
         </form>
       </mat-card-content>
     </mat-card>

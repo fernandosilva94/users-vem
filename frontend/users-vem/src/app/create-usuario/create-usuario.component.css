@@ -25,4 +25,6 @@ a, a:hover{
 .size-down {
   margin-bottom: 10px;
 }
-
+.btn-cancelar {
+  margin-left: 5px;
+}
