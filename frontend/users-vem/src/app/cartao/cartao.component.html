@@ -7,6 +7,7 @@
         <th> Nome </th>
         <th> Tipo de Cartão </th>
         <th> Status </th>
+        <th> Nº Cartão </th>
       </tr>
     </thead>
     <tbody>
@@ -15,6 +16,7 @@
         <td> {{ cartao.nome }} </td>
         <td> {{ cartao.tipoCartao }} </td>
         <td> {{ cartao.status  !== true ? "INATIVO" : "ATIVO" }} </td>
+        <td> {{ cartao.numeroCartao }} </td>
       </tr>
     </tbody>
   </table>

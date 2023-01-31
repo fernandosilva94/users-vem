@@ -1,5 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsuarioService } from './../services/usuario.service';
 import { UsuarioModel } from './../usuario';
@@ -13,7 +13,7 @@ export class CreateUsuarioComponent implements OnInit {
   // usuario!: UsuarioModel;
   formGroup: FormGroup;
   hide = true;
-  @Output() recebeUserId: any;
+  // @Output() recebeUserId: any;
 
   constructor(
     private formBuilder: FormBuilder,

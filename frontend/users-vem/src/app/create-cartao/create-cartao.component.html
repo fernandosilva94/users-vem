@@ -3,27 +3,86 @@
     <mat-card>
       <h3>Cadastro de cartão</h3>
       <mat-card-content>
-        <form class="size-down">
-          <label for="basic-url" class="form-label">Proprietário
-            <input readonly
+        <form class="size-down" [formGroup]="formGroup">
+          <label for="basic-url" class="form-label"
+            >Proprietário
+            <input
+              readonly
               class="input-nome-tam mb-2 form-control"
               type="text"
-              aria-label="default input example" id="nome"
-              [(ngModel)]="usuario.nome" name="nome"
+              aria-label="default input example"
+              id="nome"
+              formControlName="nome"
+              [(ngModel)]="usuario.nome"
+              name="nome"
             />
           </label>
 
-          <label for="basic-url" class="input-dist form-label">ID
-            <input readonly
+          <label for="basic-url" class="input-dist form-label"
+            >ID
+            <input
+              readonly
               class="input-id-tam mb-2 form-control"
               type="text"
-              aria-label="default input example" id="id"
-              [(ngModel)]="usuario.id" name="id"
+              aria-label="default input example"
+              id="usuarioId"
+              formControlName="usuarioId"
+              [(ngModel)]="usuario.id"
+              name="usuarioId"
             />
           </label>
 
           <div>
-            <button (click)="onSubmit()" class="btn-dist btn btn-primary" type="submit">
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="inputGroup-sizing-default"
+                >Nº do Cartão</span
+              >
+              <input
+                type="number"
+                class="form-control"
+                aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-default"
+                id="numeroCartao"
+                formControlName="numeroCartao"
+                name="numeroCartao"
+              />
+            </div>
+            <select
+              class="form-control tipo-tam form-select"
+              aria-label="Default select example"
+              formControlName="tipoCartao"
+              select="tipo"
+            >
+              <option selected>Tipo</option>
+              <option value="COMUM">COMUM</option>
+              <option value="TRABALHADOR">TRABALHADOR</option>
+              <option value="ESTUDATE">ESTUDATE</option>
+            </select>
+
+            <div>
+              <p class="dist-status">Status</p>
+              <div class="form-check form-switch">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="flexSwitchCheckChecked"
+                  formControlName="status"
+                  checked
+                />
+                <label class="form-check-label" for="flexSwitchCheckChecked"
+                  >ativado</label
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="btn-margin">
+            <button
+              (click)="onSubmit()"
+              class="btn-dist btn btn-primary"
+              type="submit"
+              [disabled]="!formGroup.valid"
+            >
               Salvar
             </button>
             <button

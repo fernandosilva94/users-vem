@@ -19,6 +19,7 @@ import { CreateUsuarioComponent } from './create-usuario/create-usuario.componen
 import { UsuarioFormComponent } from './usuario-form/usuario-form.component';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { FormsModule } from '@angular/forms';
+import { UsuarioUpdateComponent } from './usuario-update/usuario-update.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { FormsModule } from '@angular/forms';
     CartaoComponent,
     CreateUsuarioComponent,
     UsuarioFormComponent,
-    CreateCartaoComponent
+    CreateCartaoComponent,
+    UsuarioUpdateComponent
   ],
   imports: [
     BrowserModule,

@@ -14,4 +14,12 @@ export class CartaoService {
   public getCartao(): Observable<CartaoModel[]> {
     return this.http.get<CartaoModel[]>(`${this.apiServerUrl}`);
   }
+
+  public getCartaoById(id: number): Observable<CartaoModel> {
+    return this.http.get<CartaoModel>(`${this.apiServerUrl}/${id}`);
+  }
+
+  public addCartao(cartao: CartaoModel): Observable<CartaoModel> {
+    return this.http.post<CartaoModel>(`${this.apiServerUrl}`, cartao);
+  }
 }
