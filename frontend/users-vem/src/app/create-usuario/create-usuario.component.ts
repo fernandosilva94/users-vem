@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsuarioService } from './../services/usuario.service';
@@ -10,9 +10,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./create-usuario.component.css'],
 })
 export class CreateUsuarioComponent implements OnInit {
-  usuario!: UsuarioModel;
+  // usuario!: UsuarioModel;
   formGroup: FormGroup;
   hide = true;
+  @Output() recebeUserId: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -32,15 +33,12 @@ export class CreateUsuarioComponent implements OnInit {
 
   onSubmit() {
     console.log(this.formGroup.value);
-    // this.usuarioService.addUsuario(this.formGroup.value).subscribe(data => {
-    //   console.log(data);
-    // });
     this.usuarioService.addUsuario(this.formGroup.value).subscribe({
-      next: () => /*console.log(data)*/this.snackBar.open("Usuario cadastrado com sucesso.", "X"),
+      next: () => alert("Usuario cadastrado com sucesso."),
+
       error: () => {
-        // this.onError();
         console.log("entrou no erro");
-        this.snackBar.open("Erro ao cadastrar usuário.", "X");
+        alert("Erro de requisição 400");
       },
     });
     this.router.navigate(['usuario']);

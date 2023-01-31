@@ -4,14 +4,13 @@ import { CartaoComponent } from './cartao/cartao.component';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {path: "usuario", component: UsuarioComponent},
   {path: "cartao", component: CartaoComponent},
   {path: "create-usuario", component: CreateUsuarioComponent},
-  {path: "create-cartao", component: CreateCartaoComponent},
+  {path: "create-cartao/:id", component: CreateCartaoComponent},
   {path: "", redirectTo: "usuario", pathMatch: "full"}
 ];
 

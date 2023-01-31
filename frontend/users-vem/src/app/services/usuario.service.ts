@@ -15,6 +15,10 @@ export class UsuarioService {
     return this.http.get<UsuarioModel[]>(`${this.apiServerUrl}`);
   }
 
+  public getUsuarioById(id: number): Observable<UsuarioModel> {
+    return this.http.get<UsuarioModel>(`${this.apiServerUrl}/${id}`);
+  }
+
   public addUsuario(usuario: UsuarioModel): Observable<UsuarioModel> {
     return this.http.post<UsuarioModel>(`${this.apiServerUrl}`, usuario);
   }

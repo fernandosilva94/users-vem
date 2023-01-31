@@ -18,6 +18,7 @@ import { CreateCartaoComponent } from './create-cartao/create-cartao.component';
 import { CreateUsuarioComponent } from './create-usuario/create-usuario.component';
 import { UsuarioFormComponent } from './usuario-form/usuario-form.component';
 import { UsuarioComponent } from './usuario/usuario.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { UsuarioComponent } from './usuario/usuario.component';
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    FormsModule
   ],
   providers: [UsuarioService, CartaoService],
   bootstrap: [AppComponent]

@@ -1,5 +1,5 @@
 import { UsuarioService } from './../services/usuario.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { UsuarioModel } from '../usuario';
 import { Router } from '@angular/router';
 
@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class UsuarioComponent implements OnInit {
   usuarios!: UsuarioModel[];
+  @Output() infosUser = new EventEmitter(false);
 
   constructor(private usuarioService: UsuarioService, private router: Router) { }
 
@@ -26,4 +27,16 @@ export class UsuarioComponent implements OnInit {
   onAdd() {
     this.router.navigate(["create-usuario"]);
   };
+
+  onEdit(id: number) {
+    //
+  }
+
+  onCreateCard(id: number) {
+    this.router.navigate(["create-cartao", id]);
+  };
+
+  numList() {
+
+  }
 }

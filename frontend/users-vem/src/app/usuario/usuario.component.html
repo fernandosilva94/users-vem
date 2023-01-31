@@ -7,7 +7,8 @@
         <th> ID </th>
         <th> Nome </th>
         <th> E-mail </th>
-        <th> Cartão </th>
+        <th> Ações </th>
+        <!-- <th> Cartão </th> -->
       </tr>
     </thead>
     <tbody>
@@ -15,7 +16,29 @@
         <td> {{ usuario.id }} </td>
         <td> {{ usuario.nome }} </td>
         <td> {{ usuario.email }} </td>
-        <td> {{ usuario.cartao | json }} <mat-icon>edit</mat-icon> </td>
+        <!-- <td> {{ usuario.cartao | json }} -->
+
+        <!-- </td> -->
+        <!-- <td> {{ numList() }} <mat-icon>edit</mat-icon> </td> -->
+        <td>
+          <div class="container">
+            <button (click)="onEdit(usuario.id)" type="button" class="btn-dist btn btn-warning">
+              <i class="bi bi-pencil-square"></i>
+            </button>
+
+            <button type="button" class="btn-dist btn btn-danger">
+              <i class="bi bi-trash"></i>
+            </button>
+
+            <button type="button" class="btn-dist btn btn-primary">
+              <i class="bi bi-info-circle"></i>
+            </button>
+
+            <button (click)="onCreateCard(usuario.id)" type="button" class="btn btn-dark">
+              <i class="bi bi-credit-card-2-front"></i>
+            </button>
+          </div>
+        </td>
       </tr>
     </tbody>
   </table>

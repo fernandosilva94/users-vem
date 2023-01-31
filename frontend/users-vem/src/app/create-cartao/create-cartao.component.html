@@ -1,1 +1,41 @@
-<p>create-cartao works!</p>
+<div class="container">
+  <div class="col-md-6 offset-md-3">
+    <mat-card>
+      <h3>Cadastro de cartão</h3>
+      <mat-card-content>
+        <form class="size-down">
+          <label for="basic-url" class="form-label">Proprietário
+            <input readonly
+              class="input-nome-tam mb-2 form-control"
+              type="text"
+              aria-label="default input example" id="nome"
+              [(ngModel)]="usuario.nome" name="nome"
+            />
+          </label>
+
+          <label for="basic-url" class="input-dist form-label">ID
+            <input readonly
+              class="input-id-tam mb-2 form-control"
+              type="text"
+              aria-label="default input example" id="id"
+              [(ngModel)]="usuario.id" name="id"
+            />
+          </label>
+
+          <div>
+            <button (click)="onSubmit()" class="btn-dist btn btn-primary" type="submit">
+              Salvar
+            </button>
+            <button
+              (click)="btnVoltar()"
+              type="button"
+              class="btn-cancelar btn btn-outline-dark"
+            >
+              Cancelar
+            </button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
