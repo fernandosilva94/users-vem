@@ -36,6 +36,10 @@ export class UsuarioComponent implements OnInit {
     this.router.navigate(["create-cartao", id]);
   };
 
+  onInfo(id: number) {
+    this.router.navigate(["usuario-info", id]);
+  }
+
   numList() {
 
   }

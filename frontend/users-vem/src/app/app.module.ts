@@ -20,6 +20,7 @@ import { UsuarioFormComponent } from './usuario-form/usuario-form.component';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { FormsModule } from '@angular/forms';
 import { UsuarioUpdateComponent } from './usuario-update/usuario-update.component';
+import { UsuarioInfoComponent } from './usuario-info/usuario-info.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { UsuarioUpdateComponent } from './usuario-update/usuario-update.componen
     CreateUsuarioComponent,
     UsuarioFormComponent,
     CreateCartaoComponent,
-    UsuarioUpdateComponent
+    UsuarioUpdateComponent,
+    UsuarioInfoComponent
   ],
   imports: [
     BrowserModule,

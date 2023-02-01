@@ -47,7 +47,6 @@ export class CreateCartaoComponent implements OnInit {
 
   onSubmit() {
     console.log(this.formGroup.value);
-    this.formBuilder.control
     // this.cartaoService.addCartao(this.formGroup.value).subscribe({
     //   next: () => alert("Cartao cadastrado com sucesso."),
 

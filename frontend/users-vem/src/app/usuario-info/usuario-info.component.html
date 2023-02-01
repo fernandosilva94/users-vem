@@ -1,10 +1,9 @@
 <div class="container">
   <div class="col-md-6 offset-md-3">
     <mat-card>
-      <h3>Alterar usuário</h3>
+      <h3>Informações do usuário</h3>
       <mat-card-content>
-        <form class="size-down" [formGroup]="formGroup" method=post
-          oninput='password2.setCustomValidity(password2.value != password1.value ? "Passwords do not match." : "")'>
+        <form class="size-down" [formGroup]="formGroup">
           <input
               class="input-nome-tam mb-2 form-control"
               type="text"
@@ -12,7 +11,7 @@
               id="nome"
               formControlName="nome"
               [(ngModel)]="usuario.nome"
-              name="nome"
+              name="nome" readonly
             />
 
           <div class="mb-3">
@@ -25,34 +24,11 @@
                 aria-label="Input group example"
                 aria-describedby="btnGroupAddon"
                 [(ngModel)]="usuario.email"
-                formControlName="email"
+                formControlName="email" readonly
               />
             </div>
           </div>
 
-          <div class="form-group">
-            <div class="size-pass input-group" id="show_hide_password">
-              <input
-                class="form-control"
-                placeholder="Senha"
-                type="password"
-                name="password1"
-                formControlName="password"
-              />
-            </div>
-            <div class="size-pass input-group" id="show_hide_password">
-              <input
-                class="form-control"
-                placeholder="confirmar Senha"
-                type="password"
-                name="password2"
-                formControlName="passwordcheck"
-              />
-            </div>
-          </div>
-          <button (click)="onSubmit()" class="btn btn-primary" type="submit">
-            Salvar
-          </button>
           <button
             (click)="btnVoltar()"
             type="button"

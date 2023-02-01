@@ -1,6 +1,6 @@
 import { UsuarioService } from './../services/usuario.service';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsuarioModel } from './../usuario';
 
@@ -37,6 +37,10 @@ export class UsuarioUpdateComponent implements OnInit {
         alert("Erro de requisição 400");
       },
     });
+  }
+
+  onSubmit() {
+    console.log(this.formGroup.value);
   }
 
   btnVoltar() {
