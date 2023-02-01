@@ -5,7 +5,7 @@ import { UsuarioModel } from './../usuario';
 import { UsuarioService } from './../services/usuario.service';
 import { Component, OnInit, NgModule } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-create-cartao',
@@ -29,7 +29,9 @@ export class CreateCartaoComponent implements OnInit {
                   nome: [null],
                   status: [null],
                   tipoCartao: [null],
-                  usuarioId: [null]
+                  usuario: this.formBuilder.group({
+                    id: [null]
+                  })
                 });
                }
 
@@ -40,29 +42,32 @@ export class CreateCartaoComponent implements OnInit {
 
       error: () => {
         console.log("entrou no erro");
-        alert("Erro de requisição 400");
       },
     });
   }
 
   onSubmit() {
-    console.log(this.formGroup.value);
-    // this.cartaoService.addCartao(this.formGroup.value).subscribe({
-    //   next: () => alert("Cartao cadastrado com sucesso."),
+    console.log({...this.formGroup.value, usuario: ({ id: this.id })});
+    this.cartaoService.addCartao({...this.formGroup.value, usuario: ({ id: this.id })}).subscribe({
+      next: () => alert("Cartao cadastrado com sucesso."),
 
-    //   error: () => {
-    //     console.log("entrou no erro");
-    //     alert("Erro de requisição 400");
-    //   },
-    // });
-    // this.router.navigate(["usuario"]);
-  }
-
-  onInfoName() {
-
+      error: (data) => {
+        console.log("Erro:", data);
+      },
+    });
+    this.router.navigate(["usuario"]);
   }
 
   btnVoltar() {
     this.router.navigate(["usuario"]);
   };
+
+  altLabel() {
+    var status = this.formGroup.controls['status'].value;
+    if (status == true) {
+      return "Ativo"
+    } else {
+      return "Inativo"
+    }
+  }
 }

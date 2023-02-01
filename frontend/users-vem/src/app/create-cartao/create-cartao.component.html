@@ -18,19 +18,16 @@
             />
           </label>
 
-          <label for="basic-url" class="input-dist form-label"
-            >ID
-            <input
+            <input hidden="true"
               readonly
               class="input-id-tam mb-2 form-control"
               type="text"
               aria-label="default input example"
               id="usuarioId"
-              formControlName="usuarioId"
+              formControlName="usuario"
               [(ngModel)]="usuario.id"
               name="usuarioId"
             />
-          </label>
 
           <div>
             <div class="input-group mb-3">
@@ -39,7 +36,7 @@
               >
               <input
                 type="number"
-                class="form-control"
+                class="input-card form-control"
                 aria-label="Sizing example input"
                 aria-describedby="inputGroup-sizing-default"
                 id="numeroCartao"
@@ -47,17 +44,20 @@
                 name="numeroCartao"
               />
             </div>
-            <select
-              class="form-control tipo-tam form-select"
-              aria-label="Default select example"
-              formControlName="tipoCartao"
-              select="tipo"
-            >
-              <option selected>Tipo</option>
-              <option value="COMUM">COMUM</option>
-              <option value="TRABALHADOR">TRABALHADOR</option>
-              <option value="ESTUDATE">ESTUDATE</option>
-            </select>
+
+            <label for="basic-url" class="form-label">
+              Tipo
+              <select
+                class="form-control tipo-tam form-select"
+                aria-label="Default select example"
+                formControlName="tipoCartao">
+
+                <option selected disabled>Tipo de cartão</option>
+                <option value="COMUM">COMUM</option>
+                <option value="TRABALHADOR">TRABALHADOR</option>
+                <option value="ESTUDANTE">ESTUDANTE</option>
+              </select>
+            </label>
 
             <div>
               <p class="dist-status">Status</p>
@@ -70,7 +70,7 @@
                   checked
                 />
                 <label class="form-check-label" for="flexSwitchCheckChecked"
-                  >ativado</label
+                  >{{ altLabel() }}</label
                 >
               </div>
             </div>
