@@ -63,7 +63,7 @@ public class UsuarioController {
         }
         usuarioService.deleteUsuario(usuarioModelOptional.get());
         
-        return ResponseEntity.status(HttpStatus.OK).body("Usuario deletado com sucesso.");
+        return ResponseEntity.noContent().<Object>build();
     }
 
     @PutMapping("/{id}")
