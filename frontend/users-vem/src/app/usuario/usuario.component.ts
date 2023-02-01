@@ -29,7 +29,7 @@ export class UsuarioComponent implements OnInit {
   };
 
   onEdit(id: number) {
-    //
+    this.router.navigate(["update-usuario", id]);
   }
 
   onCreateCard(id: number) {

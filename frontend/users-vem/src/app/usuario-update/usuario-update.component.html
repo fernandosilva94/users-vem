@@ -1,1 +1,54 @@
-<p>usuario-update works!</p>
+<div class="container">
+  <div class="col-md-6 offset-md-3">
+    <mat-card>
+      <h3>Informações do usuário</h3>
+      <mat-card-content>
+        <form class="size-down" [formGroup]="formGroup">
+          <input
+              readonly
+              class="input-nome-tam mb-2 form-control"
+              type="text"
+              aria-label="default input example"
+              id="nome"
+              formControlName="nome"
+              [(ngModel)]="usuario.nome"
+              name="nome"
+            />
+
+          <div class="mb-3">
+            <div class="input-group">
+              <div class="input-group-text" id="btnGroupAddon">E-mail</div>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="name@example.com"
+                aria-label="Input group example"
+                aria-describedby="btnGroupAddon"
+                [(ngModel)]="usuario.email"
+                formControlName="email"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="size-pass input-group" id="show_hide_password">
+              <input
+                class="form-control"
+                placeholder="Senha"
+                type="password"
+                formControlName="senha"
+              />
+            </div>
+          </div>
+          <button
+            (click)="btnVoltar()"
+            type="button"
+            class="btn-cancelar btn btn-outline-dark"
+          >
+            Voltar
+          </button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
