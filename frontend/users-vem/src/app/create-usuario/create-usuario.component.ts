@@ -36,9 +36,8 @@ export class CreateUsuarioComponent implements OnInit {
     this.usuarioService.addUsuario(this.formGroup.value).subscribe({
       next: () => alert("Usuario cadastrado com sucesso."),
 
-      error: () => {
-        console.log("entrou no erro");
-        alert("Erro de requisição 400");
+      error: (data) => {
+        console.log("erro", data);
       },
     });
     this.router.navigate(['usuario']);
