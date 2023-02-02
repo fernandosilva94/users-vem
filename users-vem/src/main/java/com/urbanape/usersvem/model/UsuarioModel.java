@@ -29,7 +29,7 @@ public class UsuarioModel implements Serializable {
     @Column(nullable = false, length = 200)
     private String senha;
 
-    @OneToMany(mappedBy="usuario")
+    @OneToMany(cascade = CascadeType.PERSIST, orphanRemoval = true, mappedBy="usuario")
     private List<CartaoModel> cartao;
 
     public Integer getId() {
