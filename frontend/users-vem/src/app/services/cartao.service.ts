@@ -22,4 +22,8 @@ export class CartaoService {
   public addCartao(cartao: CartaoModel): Observable<CartaoModel> {
     return this.http.post<CartaoModel>(`${this.apiServerUrl}`, cartao);
   }
+
+  public deleteCartao(id: number): Observable<Object> {
+    return this.http.delete<Object>(`${this.apiServerUrl}/${id}`);
+  }
 }

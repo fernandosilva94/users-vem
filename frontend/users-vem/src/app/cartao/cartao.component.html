@@ -8,6 +8,7 @@
         <th> Tipo de Cartão </th>
         <th> Status </th>
         <th> Nº Cartão </th>
+        <th> Ações </th>
       </tr>
     </thead>
     <tbody>
@@ -17,6 +18,15 @@
         <td> {{ cartao.tipoCartao }} </td>
         <td> {{ cartao.status  !== true ? "INATIVO" : "ATIVO" }} </td>
         <td> {{ cartao.numeroCartao }} </td>
+        <td>
+          <button
+              (click)="onDelete(cartao.id)"
+              type="button"
+              class="btn-dist btn btn-danger"
+            >
+              <i class="bi bi-trash"></i>
+            </button>
+        </td>
       </tr>
     </tbody>
   </table>

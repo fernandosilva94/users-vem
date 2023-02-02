@@ -61,6 +61,7 @@ export class UsuarioComponent implements OnInit {
       }
     });
     this.getUsuario();
+    location.reload();
   }
 
   numList() {
