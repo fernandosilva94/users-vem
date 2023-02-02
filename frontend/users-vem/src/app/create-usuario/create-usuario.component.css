@@ -1,0 +1,30 @@
+.container mat-form-field + mat-form-field {
+  margin-left: 8px;
+}
+
+.example-right-align {
+  text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+body{
+  padding:100px 0;
+  background-color:#efefef
+}
+a, a:hover{
+  color:#333
+}
+
+.size-pass {
+  padding-right: 50%;
+}
+.size-down {
+  margin-bottom: 10px;
+}
+.btn-cancelar {
+  margin-left: 5px;
+}

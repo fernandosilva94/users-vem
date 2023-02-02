@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="col-md-6 offset-md-3">
+    <mat-card>
+      <h3>Alterar usuário</h3>
+      <mat-card-content>
+        <form class="size-down" [formGroup]="formGroup">
+          <div class="input-group">
+          <div class="input-group-text" id="btnGroupAddon">Nome</div>
+            <input
+                class="input-nome-tam mb-2 form-control"
+                type="text"
+                aria-label="default input example"
+                aria-describedby="btnGroupAddon"
+                id="nome"
+                [(ngModel)]="usuario.nome"
+                formControlName="nome"
+                name="nome"
+              />
+          </div>
+
+          <div class="mb-3">
+            <div class="input-group">
+              <div class="input-group-text" id="btnGroupAddon">E-mail</div>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="name@example.com"
+                aria-label="Input group example"
+                aria-describedby="btnGroupAddon"
+                [(ngModel)]="usuario.email"
+                formControlName="email"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="input-group">
+              <div class="size-pass input-group" id="show_hide_password">
+                <div class="input-group-text" id="btnGroupAddon">Senha</div>
+                <input
+                  class="input-senha form-control"
+                  placeholder="Senha"
+                  aria-label="Input group example"
+                  aria-describedby="btnGroupAddon"
+                  type="password"
+                  name="password"
+                  [(ngModel)]="usuario.senha"
+                  formControlName="senha"
+                />
+              </div>
+            </div>
+          </div>
+          <button (click)="onSubmit()" class="btn-dist btn btn-primary" type="submit">
+            Salvar
+          </button>
+          <button
+            (click)="btnVoltar()"
+            type="button"
+            class="btn-cancelar btn btn-outline-dark"
+          >
+            Voltar
+          </button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

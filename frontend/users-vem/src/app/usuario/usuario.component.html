@@ -1,0 +1,50 @@
+<div class="container">
+  <h2>Lista de usuários</h2>
+  <table class="table table-striped">
+    <thead>
+      <button (click)="onAdd()" type="button" class="create-user btn btn-light">
+        Criar usuário
+      </button>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>E-mail</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let usuario of usuarios">
+        <td>{{ usuario.id }}</td>
+        <td>{{ usuario.nome }}</td>
+        <td>{{ usuario.email }}</td>
+        <td>
+          <div class="container">
+            <button
+              (click)="onEdit(usuario.id)"
+              type="button"
+              class="btn-dist btn btn-warning"
+            >
+              <i class="bi bi-pencil-square"></i>
+            </button>
+
+            <button
+              (click)="onDelete(usuario.id)"
+              type="button"
+              class="btn-dist btn btn-danger"
+            >
+              <i class="bi bi-trash"></i>
+            </button>
+
+            <button
+              (click)="onCreateCard(usuario.id)"
+              type="button"
+              class="btn btn-dark"
+            >
+              <i class="bi bi-credit-card-2-front"></i>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
