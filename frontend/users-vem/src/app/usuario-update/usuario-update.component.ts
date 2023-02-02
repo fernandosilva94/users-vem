@@ -9,6 +9,7 @@ import { UsuarioModel } from './../usuario';
   templateUrl: './usuario-update.component.html',
   styleUrls: ['./usuario-update.component.css']
 })
+
 export class UsuarioUpdateComponent implements OnInit {
 
   formGroup!: FormGroup;
@@ -23,7 +24,7 @@ export class UsuarioUpdateComponent implements OnInit {
                   nome: [null],
                   email: [null],
                   senha: [null],
-                  cartao: [null],
+                  // cartao: [null],
                 });
               }
 
@@ -34,13 +35,21 @@ export class UsuarioUpdateComponent implements OnInit {
 
       error: () => {
         console.log("entrou no erro");
-        alert("Erro de requisição 400");
+        alert("Erro de requisição");
       },
     });
   }
 
   onSubmit() {
     console.log(this.formGroup.value);
+    this.usuarioService.updateUsuario(this.usuario).subscribe({
+      next: () => alert("Usuario atualizado!"),
+
+      error: (data) => {
+        console.log("entrou no erro: ", data);
+      }
+    });
+    // this.btnVoltar()
   }
 
   btnVoltar() {

@@ -11,6 +11,10 @@ export class UsuarioService {
 
   constructor(private http: HttpClient) { }
 
+  // loadById(id: string) {
+  //   return this.http.get<UsuarioModel>(`${this.apiServerUrl}/${id}`);
+  // };
+
   public getUsuario(): Observable<UsuarioModel[]> {
     return this.http.get<UsuarioModel[]>(`${this.apiServerUrl}`);
   }
@@ -23,11 +27,11 @@ export class UsuarioService {
     return this.http.post<UsuarioModel>(`${this.apiServerUrl}`, usuario);
   }
 
-  // public updateUsuario(usuario: Usuario): Observable<Usuario> {
-  //   return this.http.put<Usuario>(`${this.apiServerUrl}/usuario/update`, usuario);
-  // }
+  public updateUsuario(record: Partial<UsuarioModel>): Observable<UsuarioModel> {
+    return this.http.put<UsuarioModel>(`${this.apiServerUrl}/${record.id}`, record);
+  }
 
-  // public deleteUsuario(usuarioId: number): Observable<void> {
-  //   return this.http.delete<void>(`${this.apiServerUrl}/usuario/delete/${usuarioId}`);
-  // }
+  public deleteUsuario(id: number): Observable<Object> {
+    return this.http.delete<Object>(`${this.apiServerUrl}/${id}`);
+  }
 }
