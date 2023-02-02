@@ -1,4 +1,3 @@
-import { UsuarioInfoComponent } from './usuario-info/usuario-info.component';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
@@ -14,7 +13,6 @@ const routes: Routes = [
   {path: "create-usuario", component: CreateUsuarioComponent},
   {path: "update-usuario/:id", component: UsuarioUpdateComponent},
   {path: "create-cartao/:id", component: CreateCartaoComponent},
-  {path: "usuario-info/:id", component: UsuarioInfoComponent},
   {path: "", redirectTo: "usuario", pathMatch: "full"}
 ];
 

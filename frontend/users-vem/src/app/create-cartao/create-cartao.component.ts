@@ -1,11 +1,10 @@
-import { CartaoService } from './../services/cartao.service';
-import { CartaoModel } from './../cartao';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { UsuarioModel } from './../usuario';
-import { UsuarioService } from './../services/usuario.service';
-import { Component, OnInit, NgModule } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CommonModule, JsonPipe } from '@angular/common';
+import { CartaoModel } from './../cartao';
+import { CartaoService } from './../services/cartao.service';
+import { UsuarioService } from './../services/usuario.service';
+import { UsuarioModel } from './../usuario';
 
 @Component({
   selector: 'app-create-cartao',
@@ -53,6 +52,7 @@ export class CreateCartaoComponent implements OnInit {
 
       error: (data) => {
         console.log("Erro:", data);
+        alert("Erro na criação do Cartão, verifique os dados.");
       },
     });
     this.router.navigate(["usuario"]);

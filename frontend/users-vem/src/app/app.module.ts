@@ -4,7 +4,7 @@ import { CartaoService } from './services/cartao.service';
 import { UsuarioService } from './services/usuario.service';
 
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -16,11 +16,8 @@ import { AppComponent } from './app.component';
 import { CartaoComponent } from './cartao/cartao.component';
 import { CreateCartaoComponent } from './create-cartao/create-cartao.component';
 import { CreateUsuarioComponent } from './create-usuario/create-usuario.component';
-import { UsuarioFormComponent } from './usuario-form/usuario-form.component';
-import { UsuarioComponent } from './usuario/usuario.component';
-import { FormsModule } from '@angular/forms';
 import { UsuarioUpdateComponent } from './usuario-update/usuario-update.component';
-import { UsuarioInfoComponent } from './usuario-info/usuario-info.component';
+import { UsuarioComponent } from './usuario/usuario.component';
 
 @NgModule({
   declarations: [
@@ -28,10 +25,8 @@ import { UsuarioInfoComponent } from './usuario-info/usuario-info.component';
     UsuarioComponent,
     CartaoComponent,
     CreateUsuarioComponent,
-    UsuarioFormComponent,
     CreateCartaoComponent,
     UsuarioUpdateComponent,
-    UsuarioInfoComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
-import { CartaoService } from './../services/cartao.service';
-import { CartaoModel } from './../cartao';
 import { Component, OnInit } from '@angular/core';
+import { CartaoModel } from './../cartao';
+import { CartaoService } from './../services/cartao.service';
 
 @Component({
   selector: 'app-cartao',
@@ -28,7 +28,7 @@ export class CartaoComponent implements OnInit {
       next: () => console.log("OK"),
 
       error: (data) => {
-        console.log("entrou no erro: ", data);
+        console.log("Error: ", data);
       }
     });
     location.reload()

@@ -18,16 +18,17 @@
             />
           </label>
 
-            <input hidden="true"
-              readonly
-              class="input-id-tam mb-2 form-control"
-              type="text"
-              aria-label="default input example"
-              id="usuarioId"
-              formControlName="usuario"
-              [(ngModel)]="usuario.id"
-              name="usuarioId"
-            />
+          <input
+            hidden="true"
+            readonly
+            class="input-id-tam mb-2 form-control"
+            type="text"
+            aria-label="default input example"
+            id="usuarioId"
+            formControlName="usuario"
+            [(ngModel)]="usuario.id"
+            name="usuarioId"
+          />
 
           <div>
             <div class="input-group mb-3">
@@ -50,8 +51,8 @@
               <select
                 class="form-control tipo-tam form-select"
                 aria-label="Default select example"
-                formControlName="tipoCartao">
-
+                formControlName="tipoCartao"
+              >
                 <option selected disabled>Tipo de cartão</option>
                 <option value="COMUM">COMUM</option>
                 <option value="TRABALHADOR">TRABALHADOR</option>
@@ -69,7 +70,9 @@
                   formControlName="status"
                   checked
                 />
-                <label class="form-check-label" for="flexSwitchCheckChecked"
+                <label
+                  class="form-check-label"
+                  for="flexSwitchCheckChecked"
                   >{{ altLabel() }}</label
                 >
               </div>

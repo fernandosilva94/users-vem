@@ -11,10 +11,6 @@ export class UsuarioService {
 
   constructor(private http: HttpClient) { }
 
-  // loadById(id: string) {
-  //   return this.http.get<UsuarioModel>(`${this.apiServerUrl}/${id}`);
-  // };
-
   public getUsuario(): Observable<UsuarioModel[]> {
     return this.http.get<UsuarioModel[]>(`${this.apiServerUrl}`);
   }

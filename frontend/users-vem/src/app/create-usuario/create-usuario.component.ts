@@ -1,19 +1,16 @@
-import { Component, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { UsuarioService } from './../services/usuario.service';
-import { UsuarioModel } from './../usuario';
-import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-create-usuario',
   templateUrl: './create-usuario.component.html',
   styleUrls: ['./create-usuario.component.css'],
 })
 export class CreateUsuarioComponent implements OnInit {
-  // usuario!: UsuarioModel;
   formGroup: FormGroup;
   hide = true;
-  // @Output() recebeUserId: any;
 
   constructor(
     private formBuilder: FormBuilder,

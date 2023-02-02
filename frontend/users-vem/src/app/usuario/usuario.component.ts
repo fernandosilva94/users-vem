@@ -1,7 +1,7 @@
-import { UsuarioService } from './../services/usuario.service';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UsuarioModel } from '../usuario';
-import { Router, ActivatedRoute } from '@angular/router';
+import { UsuarioService } from './../services/usuario.service';
 
 @Component({
   selector: 'app-usuario',
@@ -14,20 +14,10 @@ export class UsuarioComponent implements OnInit {
   @Output() infosUser = new EventEmitter(false);
 
   constructor(private usuarioService: UsuarioService,
-              private router: Router,
-              private routerActivated: ActivatedRoute) { }
+              private router: Router) { }
 
   ngOnInit(): void {
     this.getUsuario();
-
-    // this.usuarioService.getUsuarioById(this.id).subscribe({
-    //   next: () => console.log("OK"),
-
-    //   error: () => {
-    //     console.log("entrou no erro");
-    //     // alert("Erro de requisição 400");
-    //   },
-    // });
   };
 
   private getUsuario() {
@@ -48,23 +38,15 @@ export class UsuarioComponent implements OnInit {
     this.router.navigate(["create-cartao", id]);
   };
 
-  onInfo(id: number) {
-    this.router.navigate(["usuario-info", id]);
-  }
-
   onDelete(id: number) {
     this.usuarioService.deleteUsuario(id).subscribe({
       next: () => console.log("OK"),
 
       error: (data) => {
-        console.log("entrou no erro: ", data);
+        console.log("Error: ", data);
       }
     });
     this.getUsuario();
     location.reload();
-  }
-
-  numList() {
-
   }
 }
